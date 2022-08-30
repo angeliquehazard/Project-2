@@ -40,4 +40,7 @@
       <form action="/taxis/<%= taxis._id %>/reviews/<% reviews._id%>?_method=DELETE" method="POST" id="deleteReview">
         <button type="submit" form="deleteReview">X</button>
         </form>
+        <form action="/taxis/<%= taxis._id %>/reviews/<% reviews._id%>?_method=PUT" method="POST" id="editReview">
+          <button type="submit" form="editReview">Edit</button>
+          </form>
 <%- include('../partials/footer') %>
