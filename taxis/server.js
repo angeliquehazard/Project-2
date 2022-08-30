@@ -7,19 +7,7 @@ var logger = require('morgan');
 var session = require("express-session");
 var passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-      callbackURL: process.env.GOOGLE_CALLBACK
-    },
-    function(accessToken, refreshToken, profile, cb) {
-    }
-  )
-);
-
+const User = require("../models/user");
 
 require("dotenv").config()
 require("./config/database");
@@ -46,6 +34,11 @@ app.use(session ({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", taxisRouter);
