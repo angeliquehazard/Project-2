@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/", taxisCtrl.index);
-router.get("/new", taxisCtrl.newTrip);
-router.get("/:taxiId", taxisCtrl.detail);
+router.get("/new", taxisCtrl.new);
+router.get("/:taxiId", taxisCtrl.details);
 
 module.exports = router;

@@ -4,8 +4,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 // require config/database to make it work
+var session = require("express-session");
+var passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+      callbackURL: process.env.GOOGLE_CALLBACK
+    },
+    function(accessToken, refreshToken, profile, cb) {
+    }
+  )
+);
+
+
 require("dotenv").config()
 require("./config/database");
+require("./config/passport");
 
 var taxisRouter = require('./routes/taxis');
 var detailsRouter = require('./routes/details');
@@ -21,6 +39,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session ({
+  secret: process.env.GOOGLE_SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", taxisRouter);
