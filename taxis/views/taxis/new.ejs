@@ -8,6 +8,17 @@
     <title>New Trip</title>
 </head>
 <body>
-    
+    <h1>New Trip</h1>
+    <form id="addTicket" method="POST" action="/flights/<%= flightId %>/ticket">
+    <label>Taxi Number</label>
+    <input type="number" name="taxiNo">
+    <br>
+    <label>Destination</label>
+    <input type="string" name="destination">
+    <label>Departs</label>
+    <input type="datetime-local" name="departs">
+    <br><br>
+    <button type="submit">Add Trip</button>
+    </form> 
 </body>
 </html>
