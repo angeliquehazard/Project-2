@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+<h1>Details</h1>
+<section id="details-page">
+    <div>Taxi Number: </div>
+    <div><%= taxi.taxiNo %></div>
+    <div>Destination: </div>
+    <div><%= taxi.destination %></div>
+    <div>Departs: </div>
+    <div><%= taxi.departs %></div>
+    <div>Reviews: </div>
+    <br><br>
+    </section>
+
+    <div class="review-info">
+        <% if (reviews.length) { %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Comment</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% reviews.forEach(function(r) { %>
+                <tr>
+                  <td><%= r.comment %></td>
+                  <td>$<%= r.rating %></td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        <% } else { %>
+          <h5>No Reviews Added Yet</h5>
+        <% } %>
+      </div>
+    <form id="newReview" method ="GET"
+        action="<%= taxi._id %>/review">
+        <button type="submit">Add Review</button>
+      </form>
+      <form action="/taxis/<%= taxis._id %>/reviews/<% reviews._id%>?_method=DELETE" method="POST" id="deleteReview">
+        <button type="submit" form="deleteReview">X</button>
+        </form>
+<%- include('../partials/footer') %>

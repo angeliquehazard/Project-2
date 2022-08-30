@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+<h1>Taxis</h1>
+<table>
+    <thead>
+    <th>Taxi Number</th>
+    <th>Destination</th>
+    <th>Departs</th>
+    </thead>
+    <tbody> 
+        <% taxis.forEach(taxi => { %>
+            <tr>
+                <td><%= taxi.taxiNo %></td>
+                <td><%= taxi.destination %></td>
+                <td><%= taxi.departs %></td>
+                <td><a href="/taxis/<%= taxi._id %>">DETAILS</a></td>
+                  </form>
+            </tr>
+        <% }); %>
+  </tbody>
+  </table>
+<%- include('../partials/footer') %>
