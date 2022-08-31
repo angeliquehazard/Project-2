@@ -1,5 +1,5 @@
-const Taxi = ("../models/taxi");
-const Review = ("../models/review");
+const Taxi = require("../models/taxi");
+const Review = require("../models/review");
 
 function index(req, res) {
     Taxi.find({}, function (err, taxis) {
@@ -10,8 +10,8 @@ function index(req, res) {
 
   function details(req, res) {
     Taxi.findById(req.params.id, function(err, taxi) {
-        Ticket.find({taxi: taxi._id}, function(err, reviews){
-            res.render('flights/details', {title: 'Taxi Detail', taxi, reviews});
+        Review.find({taxi: taxi._id}, function(err, reviews){
+            res.render('taxis/details', {title: 'Taxi Detail', taxi, reviews});
         });
     });
 };

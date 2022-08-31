@@ -1,5 +1,5 @@
 const passport = require("passport");
-// do i need to require something?
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 passport.use(
     new GoogleStrategy(

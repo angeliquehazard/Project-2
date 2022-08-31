@@ -41,7 +41,7 @@ app.use(function (req, res, next) {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use("/", taxisRouter);
+app.use("/taxis", taxisRouter);
 app.use("/:id", detailsRouter);
 app.use("/:id/review", reviewsRouter);
 
