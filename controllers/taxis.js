@@ -20,8 +20,17 @@ function newTrip(req, res) {
   res.render("taxis/new");
 };
 
+function createTrip(req, res) {
+  const taxi =  new Taxi(req.body);
+  taxi.save(function (err){
+      if(err) return res.render('taxis/new');
+      res.redirect("/taxis");
+  })};
+
+
 module.exports = {
     index,
     details,
     new: newTrip,
+    createTrip,
 }
