@@ -9,11 +9,12 @@ function createReview(req, res){
         });
     });
 }
-function editReview(req, res) {
-    Review.findById(req.params.id, function (err, review){
+// how do i make this function?
+// function editReview(req, res) {
+//     Review.findById(req.params.id, function (err, review){
         
-    })
-}
+//     })
+// }
 
 function deleteReview(req, res){
     Review.findByIdAndDelete(req.params.id, function(err, review){
@@ -23,6 +24,6 @@ function deleteReview(req, res){
 
 module.exports = {
     createReview,
-    editReview,
+    // editReview,
     deleteReview,
 }
