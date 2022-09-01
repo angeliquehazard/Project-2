@@ -9,10 +9,10 @@ const reviewSchema = new Schema ({
 })
 
 const taxiSchema = new Schema({
-    taxiNo: {type: Number},
+    taxiNum: {type: Number},
     destination: {type: String},
     departs: Date,
-    // reviews: [reviewSchema]
+    reviews: [reviewSchema]
 }, {
     timestamps: true
 });

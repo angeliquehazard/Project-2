@@ -1,55 +1,14 @@
 <%- include('../partials/header') %>
 <h1>Details</h1>
-<section id="details-page">
-    <div>Taxi Number: </div>
-    <div><%= taxi.taxiNo %></div>
-    <div>Destination: </div>
-    <div><%= taxi.destination %></div>
-    <div>Departs: </div>
-    <div><%= taxi.departs %></div>
-    <div>Reviews: </div>
-    <br><br>
-    </section>
-
-    <div class="review-info">
-        <% if (taxis.reviews.length) { %>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Comment</th>
-                <th>Rating</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% reviews.forEach(function(r) { %>
-                <tr>
-                  <td><%= r.comment %></td>
-                  <td>$<%= r.rating %></td>
-                  <td>
-                    <% if (user && user._id.equals(r.user)) { %>
-                      <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                        <button type="submit">X</button>
-                      </form>
-                    <% } %>
-                  </td>
-              </tr>
-              <% }); %>
-            </tbody>
-          </table>
-        <% } else { %>
-          <h5>No Reviews Added Yet</h5>
-        <% } %>
-      </div>
-
-    <form id="newReview" method ="GET"
-        action="<%= taxi._id %>/review">
-        <button type="submit">Add Review</button>
-      </form>
-      <form action="/taxis/<%= taxis._id %>/reviews/<% reviews._id%>?_method=DELETE" method="POST" id="deleteReview">
-        <button type="submit" form="deleteReview">X</button>
-        </form>
-        <form action="/taxis/<%= taxis._id %>/reviews/<% reviews._id%>?_method=PUT" method="POST" id="editReview">
-          <button type="submit" form="editReview">Edit</button>
-          </form>
-<%- include('../partials/footer') %>
+<section id="detailsList">
+      <div>Taxi Number</div>
+      <div><%= taxi.taxiNum %></div>
+      <div>Destination</div>
+      <div>DESTINATION HERE</div>
+      <div>Departs</div>
+      <div>DEPARTS HERE</div>
+      <div>Reviews</div>
+      <div>REVIEWS HERE</div>
+    </tr>
+</section>
+<%- include("../partials/footer") %>

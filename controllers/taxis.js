@@ -10,9 +10,9 @@ function index(req, res) {
 
   function details(req, res) {
     Taxi.findById(req.params.id, function(err, taxi) {
-        Review.find({taxi: taxi._id}, function(err, reviews){
-            res.render('taxis/details', {title: 'Taxi Detail', taxi, reviews});
-        });
+        // Review.find({_id: {$nin: taxi.reviews}}, function(err, reviews){
+            res.render('taxis/details', {title: 'Taxi Detail', taxi});
+        // });
     });
 };
 
