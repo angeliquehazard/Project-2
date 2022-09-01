@@ -7,11 +7,13 @@ var logger = require('morgan');
 var session = require("express-session");
 var passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const User = require("./models/user");
+
 
 require("dotenv").config()
 require("./config/database");
 require("./config/passport");
+
+const User = require("./models/user");
 
 var taxisRouter = require('./routes/taxis');
 var detailsRouter = require('./routes/details');

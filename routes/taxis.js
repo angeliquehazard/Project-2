@@ -5,6 +5,8 @@ const taxisCtrl = require("../controllers/taxis");
 
 router.get("/", taxisCtrl.index);
 router.get("/new", taxisCtrl.new);
+router.post("/new", taxisCtrl.create);
+
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
@@ -22,6 +24,7 @@ router.get('/logout', function(req, res, next) {
     res.redirect('/taxis');
   });
 });
+
 
 
 router.get("/:taxiId", taxisCtrl.details);

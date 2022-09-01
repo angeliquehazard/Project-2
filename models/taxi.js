@@ -12,8 +12,9 @@ const taxiSchema = new Schema({
     taxiNo: {type: Number},
     destination: {type: String},
     departs: Date,
-    reviews: [reviewSchema]
-}, {timestamps: true}
-);
+    // reviews: [reviewSchema]
+}, {
+    timestamps: true
+});
 
 module.exports = mongoose.model("Taxi", taxiSchema);

@@ -9,17 +9,15 @@
 </head>
 <body>
     <h1>New Trip</h1>
-    <form id="addReview" method="POST" action="/taxis/">
-    </form>
-    <label>Taxi Number</label>
-    <input type="number" name="taxiNo">
-    <br>
-    <label>Destination</label>
-    <input type="string" name="destination">
-    <label>Departs</label>
-    <input type="datetime-local" name="departs">
-    <br><br>
-    <button type="submit">Add Trip</button>
-    </form> 
+    <form id="new-form" method="POST">
+        <label>Taxi Number:</label>
+        <input type="number" name="taxiNumber">
+        <label>Destination:</label>
+        <input type="text" name="destination">
+        <label>Departs:</label>
+        <input type="datetime-local" name="departs">
+        </select>
+        <input type="submit" value="Add Movie">
+      </form>
 </body>
 </html>
